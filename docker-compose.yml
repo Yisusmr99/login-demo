@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  laravel-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_oracle
+    platform: linux/amd64
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - ACCEPT_EULA=Y
+    networks:
+      - mynetwork
+
+  oracle-db:
+    image: gvenzl/oracle-xe
+    container_name: oracle-db
+    platform: linux/amd64
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=demo_password
+    restart: always
+    networks:
+      - mynetwork
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    platform: linux/amd64
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
