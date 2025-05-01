@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('Estas conectado!') }}
-		    SQL ejecutado:  
+                    {{ __('Estas conectado!') }} <br>
+		            SQL ejecutado: {{ $consultaSql}}
                     <table class="table table-striped mt-4">
                         <thead>
                             <tr>
@@ -28,7 +28,7 @@
                                 <tr>
                                     <td>{{ $result->id }}</td>
                                     <td>{{ $result->name }}</td>
-				    <td>{{ $result->email }}</td>
+				                    <td>{{ $result->email }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

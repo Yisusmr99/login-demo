@@ -109,7 +109,7 @@ return [
             'prefix'    => env('DB_PREFIX_ORACLE', ''),
             'prefix_schema' => env('DB_SCHEMA_PREFIX_ORACLE', ''),
             'edition'   => env('DB_EDITION_ORACLE', 'ora$base'),
-	    'server_version' => '12g',
+	        'server_version' => '12g',
         ],
 
     ],

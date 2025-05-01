@@ -24,9 +24,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $results = DB::connection('oracle')->select('SELECT * FROM users@SQLSERVER_DBLINK'); // Cambia EMPLEADOS por alguna tabla que tengas        
+        // $results = DB::connection('oracle')->select('SELECT * FROM users@SQLSERVER_DBLINK'); // Cambia EMPLEADOS por alguna tabla que tengas        
         //dd($results); // Muestra los resultados de la consulta
-       // $info = $results->sql;
-	return view('home', compact('results'));
+        // $info = $results->sql;
+        $sql = 'SELECT * FROM users@SQLSERVER_DBLINK';
+        $bindings = []; // Si tuvieras parámetros, los pones aquí
+
+        // Guardas la consulta y los parámetros en variables
+        $queryInfo = [
+            'sql' => $sql,
+            'bindings' => $bindings
+        ];
+
+        // Luego la ejecutas solo si quieres
+        $results = DB::connection('oracle')->select($sql, $bindings);
+
+        // Ya tienes por separado:
+        $consultaSql = $queryInfo['sql'];
+
+	    return view('home', compact('results', 'consultaSql'));
     }
 }
