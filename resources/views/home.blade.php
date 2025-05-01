@@ -15,7 +15,7 @@
                     @endif
 
                     {{ __('Estas conectado!') }} <br>
-		            SQL ejecutado: {{ $consultaSql}}
+		            SQL ejecutado: <strong> {{ $consultaSql}} </strong> <br>
                     <table class="table table-striped mt-4">
                         <thead>
                             <tr>
