@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-                    
+                    {{ __('Estas conectado!') }}
+		    SQL ejecutado:  
                     <table class="table table-striped mt-4">
                         <thead>
                             <tr>
@@ -26,8 +26,9 @@
                         <tbody>
                             @foreach($results as $key => $result)
                                 <tr>
-                                    <td>{{ $key + 1 }}</td>
-                                    <td>{{ $result->table_name }}</td>
+                                    <td>{{ $result->id }}</td>
+                                    <td>{{ $result->name }}</td>
+				    <td>{{ $result->email }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
