@@ -24,8 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $results = DB::connection('oracle')->select('SELECT table_name FROM user_tables'); // Cambia EMPLEADOS por alguna tabla que tengas        
-        // dd($results); // Muestra los resultados de la consulta
-        return view('home', compact('results'));
+        $results = DB::connection('oracle')->select('SELECT * FROM users@SQLSERVER_DBLINK'); // Cambia EMPLEADOS por alguna tabla que tengas        
+        //dd($results); // Muestra los resultados de la consulta
+       // $info = $results->sql;
+	return view('home', compact('results'));
     }
 }
