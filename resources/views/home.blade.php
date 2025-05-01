@@ -20,7 +20,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nombre de la tabla</th>
+                                <th>Nombre usuario</th>
+                                <th>Email</th>
                             </tr>
                         </thead>
                         <tbody>
